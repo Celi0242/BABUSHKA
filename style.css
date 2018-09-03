@@ -59,3 +59,21 @@ nav {
         grid-template-columns: 1fr;
     }
 }
+
+.button1 {
+
+    background-color: orange;
+    border: solid white;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 30px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-family: "Oswald", sans-serif;
+    left: 400px;
+    justify-content: flex-end;
+
+
+}

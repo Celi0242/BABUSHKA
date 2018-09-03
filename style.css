@@ -1,0 +1,61 @@
+/* Website */
+
+.main {
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+body {
+    background-color: orange;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+    padding: 20px;
+
+}
+
+
+
+nav {
+    display: flex;
+    background-color: #8ad0f1;
+    padding: 2px;
+    font-family: 'Oswald', sans-serif;
+    flex-wrap: wrap;
+    text-transform: uppercase;
+    justify-content: center;
+
+
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 1229px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .ret img {
+        width: 100%
+    }
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .ret img {
+        width: 100%
+    }
+    .container {
+        grid-template-columns: 1fr;
+    }
+}

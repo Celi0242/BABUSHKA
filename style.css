@@ -21,7 +21,7 @@ body {
 
 nav {
     display: flex;
-    background-color: #8ad0f1;
+    background-color: orange;
     padding: 2px;
     font-family: 'Oswald', sans-serif;
     flex-wrap: wrap;
@@ -31,13 +31,31 @@ nav {
 
 }
 
+.menu-item {
+    background-color: orange;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.menu-item:hover {
+    background-color: #4CAF50;
+    /* Green */
+    color: white;
+}
+
 .main-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
 @media only screen and (max-width: 1229px) {
-    .container {
+    .main-container {
         grid-template-columns: 1fr 1fr;
     }
 }
@@ -46,7 +64,7 @@ nav {
     .ret img {
         width: 100%
     }
-    .container {
+    .main-container {
         grid-template-columns: 1fr;
     }
 }
@@ -55,11 +73,13 @@ nav {
     .ret img {
         width: 100%
     }
-    .container {
+    .main-container {
         grid-template-columns: 1fr;
     }
 }
 
+
+/*
 .button1 {
 
     background-color: orange;
@@ -77,3 +97,4 @@ nav {
 
 
 }
+*/

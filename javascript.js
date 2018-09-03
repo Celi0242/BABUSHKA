@@ -39,7 +39,7 @@
      let temp = document.querySelector(".retter-template");
      let modtager = document.querySelector(".main-container");
      modtager.textContent = "";
-     document.querySelector("header h1").textContent = kategoriFilter;
+     document.querySelector("header h3").textContent = kategoriFilter;
      retter.forEach(ret => {
          console.log(ret.kategori, kategoriFilter);
          if (ret.kategori == kategoriFilter || kategoriFilter == "alle") {

@@ -1,27 +1,57 @@
  document.addEventListener("DOMContentLoaded", hentJson);
 
- let retter;
+
+ let dest = document.querySelector(".data-container"),
+     retter,
+     kategoriFilter = "alle";
 
 
  async function hentJson() {
      let jsonData = await fetch("json/menu.json");
      retter = await jsonData.json();
 
-     console.log(retter);
+     //console.log(retter);
 
      visRetter();
  }
 
+ document.querySelectorAll(".menu-item").forEach(knap => {
+
+
+     //console.log(knap);
+     knap.addEventListener("click", filtering)
+
+ });
+
+ function filtering() {
+
+
+
+     kategoriFilter = this.getAttribute("data-kategori");
+     //console.log(kategoriFilter);
+     visRetter();
+
+
+
+ }
+
  function visRetter() {
      let temp = document.querySelector(".retter-template");
-     let modtager = document.querySelector(".container");
-     retter.forEach(article => {
-         let klon = temp.cloneNode(true).content;
-         klon.querySelector(".data-navn").textContent = article.navn;
-         klon.querySelector(".data-billede").src = "imgs/small/" + article.billede + "-sm.jpg";
-         klon.querySelector(".data-billede").alt = "billede" + article.navn;
-         klon.querySelector(".data-kortbeskrivelse").textContent = article.kortbeskrivelse;
-         klon.querySelector(".data-pris").textContent = article.pris;
-         modtager.appendChild(klon);
+     let modtager = document.querySelector(".main-container");
+     modtager.textContent = "";
+     document.querySelector("header h1").textContent = kategoriFilter;
+     retter.forEach(ret => {
+         console.log(ret.kategori, kategoriFilter);
+         if (ret.kategori == kategoriFilter || kategoriFilter == "alle") {
+
+             console.log(ret.kategori, kategoriFilter);
+             let klon = temp.cloneNode(true).content;
+             klon.querySelector(".data-navn").textContent = ret.navn;
+             klon.querySelector(".data-billede").src = "imgs/small/" + ret.billede + "-sm.jpg";
+             klon.querySelector(".data-billede").alt = "billede" + ret.navn;
+             klon.querySelector(".data-kortbeskrivelse").textContent = ret.kortbeskrivelse;
+             klon.querySelector(".data-pris").textContent = ret.pris;
+             modtager.appendChild(klon);
+         }
      });
  }

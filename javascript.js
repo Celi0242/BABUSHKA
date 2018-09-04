@@ -16,16 +16,12 @@
  }
 
  document.querySelectorAll(".menu-item").forEach(knap => {
-
-
      //console.log(knap);
      knap.addEventListener("click", filtering)
 
  });
 
  function filtering() {
-
-
 
      kategoriFilter = this.getAttribute("data-kategori");
      //console.log(kategoriFilter);
@@ -48,10 +44,30 @@
              let klon = temp.cloneNode(true).content;
              klon.querySelector(".data-navn").textContent = ret.navn;
              klon.querySelector(".data-billede").src = "imgs/small/" + ret.billede + "-sm.jpg";
+             klon.querySelector(".data-billede").addEventListener("click", () => {
+                 visModal(ret);
+             });
              klon.querySelector(".data-billede").alt = "billede" + ret.navn;
              klon.querySelector(".data-kortbeskrivelse").textContent = ret.kortbeskrivelse;
              klon.querySelector(".data-pris").textContent = ret.pris;
              modtager.appendChild(klon);
          }
      });
+ }
+
+
+ function visModal(retter) {
+     let modal = document.querySelector("#modal");
+     modal.classList.add("vis");
+     modal.querySelector(".modal-navn").textContent = retter.navn;
+     modal.querySelector(".modal-billede").src = "imgs/small/" + retter.billede + "-sm.jpg";
+     modal.querySelector(".modal-billede").alt = "Foto af" + retter.navn;
+     modal.querySelector("button").addEventListener("click", skjulModal);
+
+ }
+
+ function skjulModal() {
+     //window.scrollTo(0);
+     modal.classList.remove("vis");
+
  }

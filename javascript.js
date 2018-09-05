@@ -60,8 +60,9 @@
      let modal = document.querySelector("#modal");
      modal.classList.add("vis");
      modal.querySelector(".modal-navn").textContent = retter.navn;
-     modal.querySelector(".modal-billede").src = "imgs/small/" + retter.billede + "-sm.jpg";
+     modal.querySelector(".modal-billede").src = "imgs/large/" + retter.billede + ".jpg";
      modal.querySelector(".modal-billede").alt = "Foto af" + retter.navn;
+     modal.querySelector(".modal-langbeskrivelse").textContent = retter.langbeskrivelse;
      modal.querySelector("button").addEventListener("click", skjulModal);
 
  }
